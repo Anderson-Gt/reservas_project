@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Recursos</title>
+</head>
+<body>
+    <h1>Recursos Disponibles</h1>
+    <ul>
+    {% for recurso in recursos %}
+        <li>
+          <strong>{{ recurso.nombre }}</strong> - 
+          <a href="{% url 'detalle_recurso' recurso.pk %}">Ver detalle</a>
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

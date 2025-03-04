@@ -1,0 +1,13 @@
+{% extends "reservas/base.html" %}
+{% block title %}Detalle de la Reserva{% endblock %}
+
+{% block content %}
+<h2>Detalle de la Reserva #{{ reserva.id }}</h2>
+<ul>
+  <li><strong>Recurso:</strong> {{ reserva.recurso.nombre }}</li>
+  <li><strong>Inicio:</strong> {{ reserva.fecha_inicio }}</li>
+  <li><strong>Fin:</strong> {{ reserva.fecha_fin }}</li>
+  <li><strong>Estado:</strong> {{ reserva.estado }}</li>
+</ul>
+<a href="{% url 'reserva_list' %}" class="btn btn-secondary">Regresar</a>
+{% endblock %}

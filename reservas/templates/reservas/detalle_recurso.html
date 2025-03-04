@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detalle de Recurso</title>
+</head>
+<body>
+    <h1>Detalle: {{ recurso.nombre }}</h1>
+    <p><strong>Descripción:</strong> {{ recurso.descripcion }}</p>
+    <p><strong>Ubicación:</strong> {{ recurso.ubicacion }}</p>
+    <p><strong>Disponible:</strong> {{ recurso.disponible }}</p>
+    <a href="{% url 'lista_recursos' %}">Volver a lista de recursos</a>
+</body>
+</html>

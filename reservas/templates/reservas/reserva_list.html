@@ -1,0 +1,25 @@
+{% extends "reservas/base.html" %}
+{% block title %}Mis Reservas{% endblock %}
+
+{% block content %}
+<h2>Mis Reservas</h2>
+<a href="{% url 'crear_reserva' %}" class="btn btn-success mb-3">Crear Reserva</a>
+<div class="list-group">
+  {% for reserva in reservas %}
+    <div class="list-group-item">
+      <h5>Reserva #{{ reserva.id }} - {{ reserva.recurso.nombre }}</h5>
+      <p>
+        <strong>Inicio:</strong> {{ reserva.fecha_inicio }} <br>
+        <strong>Fin:</strong> {{ reserva.fecha_fin }} <br>
+        <strong>Estado:</strong> {{ reserva.estado }}
+      </p>
+      <a href="{% url 'detalle_reserva' reserva.id %}" class="btn btn-primary btn-sm">Ver Detalle</a>
+      {% if reserva.estado != 'cancelada' %}
+        <a href="{% url 'cancelar_reserva' reserva.id %}" class="btn btn-danger btn-sm">Cancelar</a>
+      {% endif %}
+    </div>
+  {% empty %}
+    <p>No tienes reservas registradas.</p>
+  {% endfor %}
+</div>
+{% endblock %}

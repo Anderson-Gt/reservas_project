@@ -1,0 +1,11 @@
+{% extends "reservas/base.html" %}
+{% block title %}Nueva Reserva{% endblock %}
+
+{% block content %}
+<h2>Nueva Reserva</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-primary">Crear Reserva</button>
+</form>
+{% endblock %}

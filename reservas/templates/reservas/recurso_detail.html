@@ -1,0 +1,15 @@
+{% extends "reservas/base.html" %}
+{% block title %}Detalle Recurso{% endblock %}
+
+{% block content %}
+<h2>{{ recurso.nombre }}</h2>
+<p><strong>Descripción:</strong> {{ recurso.descripcion }}</p>
+<p><strong>Ubicación:</strong> {{ recurso.ubicacion }}</p>
+<p><strong>Disponible:</strong> {{ recurso.disponible|yesno:"Sí,No" }}</p>
+
+{% if user.is_authenticated %}
+  <a href="{% url 'crear_reserva' %}" class="btn btn-primary mt-3">Reservar</a>
+{% else %}
+  <p class="mt-3"><em>Debes iniciar sesión para reservar.</em></p>
+{% endif %}
+{% endblock %}
